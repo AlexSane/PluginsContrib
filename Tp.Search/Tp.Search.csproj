@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F6C8FAB6-DB37-481C-9365-52D143927B0E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tp.Search</RootNamespace>
+    <AssemblyName>Tp.Search</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging">
+      <HintPath>..\Tp.Integration.PluginSDK\log4net\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Log4Net">
+      <HintPath>..\Tp.Integration.PluginSDK\log4net\Common.Logging.Log4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\Tp.Integration.PluginSDK\log4net\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\libs\Lucene.NET\bin\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.DemoLib">
+      <HintPath>..\libs\Lucene.NET\bin\Demo\Lucene.Net.DemoLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\Tp.Integration.PluginSDK\NServiceBus\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Services3">
+      <HintPath>..\Tp.Integration.PluginSDK\Microsoft.Web.Services3.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus">
+      <HintPath>..\Tp.Integration.PluginSDK\NServiceBus\NServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.Core">
+      <HintPath>..\Tp.Integration.PluginSDK\NServiceBus\NServiceBus.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.Host">
+      <HintPath>..\Tp.Integration.PluginSDK\NServiceBus\NServiceBus.Host.exe</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.ObjectBuilder.StructureMap262">
+      <HintPath>..\Tp.Integration.PluginSDK\NServiceBus\containers\structuremap\NServiceBus.ObjectBuilder.StructureMap262.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.Testing">
+      <HintPath>..\Tp.Integration.PluginSDK\NServiceBus\NServiceBus.Testing.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\Tp.Integration.PluginSDK\StructureMap\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tp.Core">
+      <HintPath>..\Tp.Integration.PluginSDK\TargetProcess\Tp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Tp.Integration.Messages">
+      <HintPath>..\Tp.Integration.PluginSDK\TargetProcess\Tp.Integration.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="Tp.Integration.Plugin.Common">
+      <HintPath>..\Tp.Integration.PluginSDK\TargetProcess\Tp.Integration.Plugin.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Tp.Integration.Plugin.UninstallUtil">
+      <HintPath>..\Tp.Integration.PluginSDK\TargetProcess\Tp.Integration.Plugin.UninstallUtil.exe</HintPath>
+    </Reference>
+    <Reference Include="Tp.Plugin.Core">
+      <HintPath>..\Tp.Integration.PluginSDK\TargetProcess\Tp.Plugin.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Tp.Service.Proxies">
+      <HintPath>..\Tp.Integration.PluginSDK\TargetProcess\Tp.Service.Proxies.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\Disable.cs" />
+    <Compile Include="Commands\Enable.cs" />
+    <Compile Include="TPSearchPluginRegistry.cs" />
+    <Compile Include="PluginMashupRepository.cs" />
+    <Compile Include="SearcherProfile.cs" />
+    <Compile Include="UserStoryHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tp.Integration.Plugin.Common.dll.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Mashups\ProfileEditor\tmpl.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mashups\ProfileEditor\TPSearchEditor.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mashups\TPSearch\jquery.ui.autocomplete.html.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mashups\TPSearch\TPSearch.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mashups\TPSearch\TPSearchCommands.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
