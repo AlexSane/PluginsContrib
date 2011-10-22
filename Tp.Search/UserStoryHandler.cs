@@ -4,16 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
-using Lucene.Net.Analysis.Standard;
-using Lucene.Net.Demo.Html;
-using Lucene.Net.Documents;
-using Lucene.Net.Index;
-using Lucene.Net.Store;
 using NServiceBus;
 using Tp.Integration.Common;
 using Tp.Integration.Messages.EntityLifecycle.Messages;
-using Directory = Lucene.Net.Store.Directory;
-using Version = Lucene.Net.Util.Version;
 
 namespace Tp.Search
 {

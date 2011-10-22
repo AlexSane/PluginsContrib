@@ -1,0 +1,3 @@
+[submodule "Tp.Integration.PluginSDK"]
+	path = Tp.Integration.PluginSDK
+	url = https://EugeneKha@github.com/TargetProcess/Tp.Integration.PluginSDK.git

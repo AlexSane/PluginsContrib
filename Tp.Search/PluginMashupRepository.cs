@@ -13,15 +13,19 @@ namespace Tp.Search
 			get
 			{
 				return new[] {
-                    new PluginMashup("TPSearch", 
+                    new PluginMashup("TPSearch",
                         new[]   {
+								// TODO TP should preserve extensions and folders layout
+                                //@".\Mashups\TPSearch\style.css",
+                                //@".\Mashups\TPSearch\images\ui-bg_flat_0_aaaaaa_40x100.png",
                                 @".\Mashups\TPSearch\TPSearch.js",
-                                @".\Mashups\TPSearch\TPSearchCommands.js",
-                                @".\Mashups\TPSearch\jquery.ui.autocomplete.html.js"
+                                @".\Mashups\TPSearch\Commands.js",
+                                @".\Mashups\TPSearch\SearchResults.js",
+                                @".\Mashups\TPSearch\SearchResultsItem.js",
 			                    },
                         new[]   {
 			                    "footerPlaceholder"
-			                    }), 
+			                    }),
 					new PluginProfileEditorMashup(new[]
 						{
 							@".\Mashups\ProfileEditor\TPSearchEditor.js",

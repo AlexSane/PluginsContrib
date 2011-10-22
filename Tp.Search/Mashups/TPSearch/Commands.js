@@ -1,15 +1,15 @@
-﻿tau.mashups
+tau.mashups
 .addDependency("libs/jquery/jquery")
 .addModule("tau/mashups/TPSearch/Commands", function () {
 
-    function TpSearchCommands() {
-
+    function Commands() {
+		
     }
 
-    TpSearchCommands.prototype = {
+    Commands.prototype = {
         enable: function () {
             $.ajax({
-                url: "/tp/api/v1/Plugins/Searcher/Commands/Enable",
+                url: Application.baseUrl + "/api/v1/Plugins/Searcher/Commands/Enable",
                 data: "dada",
                 success: function (result) {
                     alert('Enabled');
@@ -25,7 +25,7 @@
         
         disable: function () {
             $.ajax({
-                url: "/tp/api/v1/Plugins/Searcher/Commands/Disable",
+                url: Application.baseUrl + "/api/v1/Plugins/Searcher/Commands/Disable",
                 data: "dada",
                 success: function (result) {
                     alert('Disabled');
@@ -37,9 +37,16 @@
                 type: 'GET',
                 dataType: "json"
             });
+        },
+        
+        search: function (keyword, success, fail) {
+        	// this wil make a call to plugin
+        	if (success) {
+        		success([2305, 3831]);
+        	}
         }
 
     }
 
-    return new TpSearchCommands();
+    return new Commands();
 });

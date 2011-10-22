@@ -41,12 +41,6 @@
     <Reference Include="log4net">
       <HintPath>..\Tp.Integration.PluginSDK\log4net\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="Lucene.Net">
-      <HintPath>..\libs\Lucene.NET\bin\Lucene.Net.dll</HintPath>
-    </Reference>
-    <Reference Include="Lucene.Net.DemoLib">
-      <HintPath>..\libs\Lucene.NET\bin\Demo\Lucene.Net.DemoLib.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation">
       <HintPath>..\Tp.Integration.PluginSDK\NServiceBus\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
@@ -109,6 +103,7 @@
   <ItemGroup>
     <None Include="Tp.Integration.Plugin.Common.dll.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup />
@@ -119,13 +114,34 @@
     <Content Include="Mashups\ProfileEditor\TPSearchEditor.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Mashups\TPSearch\jquery.ui.autocomplete.html.js">
+    <Content Include="Mashups\TPSearch\images\ui-bg_flat_0_aaaaaa_40x100.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mashups\TPSearch\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Mashups\TPSearch\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Mashups\TPSearch\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Mashups\TPSearch\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Mashups\TPSearch\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Mashups\TPSearch\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Mashups\TPSearch\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Mashups\TPSearch\images\ui-icons_222222_256x240.png" />
+    <Content Include="Mashups\TPSearch\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Mashups\TPSearch\images\ui-icons_454545_256x240.png" />
+    <Content Include="Mashups\TPSearch\images\ui-icons_888888_256x240.png" />
+    <Content Include="Mashups\TPSearch\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Mashups\TPSearch\SearchResultsItem.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mashups\TPSearch\style.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Mashups\TPSearch\TPSearch.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Mashups\TPSearch\TPSearchCommands.js">
+    <None Include="Mashups\TPSearch\Commands.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="Mashups\TPSearch\SearchResults.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
