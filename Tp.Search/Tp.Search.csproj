@@ -75,10 +75,12 @@
     <Reference Include="Tp.Core">
       <HintPath>..\Tp.Integration.PluginSDK\TargetProcess\Tp.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Tp.Integration.Messages">
+    <Reference Include="Tp.Integration.Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ee2a1130677e5334, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Tp.Integration.PluginSDK\TargetProcess\Tp.Integration.Messages.dll</HintPath>
     </Reference>
-    <Reference Include="Tp.Integration.Plugin.Common">
+    <Reference Include="Tp.Integration.Plugin.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ee2a1130677e5334, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Tp.Integration.PluginSDK\TargetProcess\Tp.Integration.Plugin.Common.dll</HintPath>
     </Reference>
     <Reference Include="Tp.Integration.Plugin.UninstallUtil">
@@ -94,13 +96,14 @@
   <ItemGroup>
     <Compile Include="Commands\Disable.cs" />
     <Compile Include="Commands\Enable.cs" />
-    <Compile Include="TPSearchPluginRegistry.cs" />
-    <Compile Include="PluginMashupRepository.cs" />
     <Compile Include="SearcherProfile.cs" />
     <Compile Include="UserStoryHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Mashups\TPSearch\placeholders.cfg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Tp.Integration.Plugin.Common.dll.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
@@ -117,18 +120,42 @@
     <Content Include="Mashups\TPSearch\images\ui-bg_flat_0_aaaaaa_40x100.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Mashups\TPSearch\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Mashups\TPSearch\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Mashups\TPSearch\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Mashups\TPSearch\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Mashups\TPSearch\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Mashups\TPSearch\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Mashups\TPSearch\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Mashups\TPSearch\images\ui-icons_222222_256x240.png" />
-    <Content Include="Mashups\TPSearch\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Mashups\TPSearch\images\ui-icons_454545_256x240.png" />
-    <Content Include="Mashups\TPSearch\images\ui-icons_888888_256x240.png" />
-    <Content Include="Mashups\TPSearch\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Mashups\TPSearch\images\ui-bg_flat_75_ffffff_40x100.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mashups\TPSearch\images\ui-bg_glass_55_fbf9ee_1x400.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mashups\TPSearch\images\ui-bg_glass_65_ffffff_1x400.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mashups\TPSearch\images\ui-bg_glass_75_dadada_1x400.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mashups\TPSearch\images\ui-bg_glass_75_e6e6e6_1x400.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mashups\TPSearch\images\ui-bg_glass_95_fef1ec_1x400.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mashups\TPSearch\images\ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mashups\TPSearch\images\ui-icons_222222_256x240.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mashups\TPSearch\images\ui-icons_2e83ff_256x240.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mashups\TPSearch\images\ui-icons_454545_256x240.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mashups\TPSearch\images\ui-icons_888888_256x240.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mashups\TPSearch\images\ui-icons_cd0a0a_256x240.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Mashups\TPSearch\SearchResultsItem.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

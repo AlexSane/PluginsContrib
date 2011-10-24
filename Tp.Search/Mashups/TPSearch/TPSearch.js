@@ -17,7 +17,7 @@ tau.mashups
 			$("<link/>", {
 			   rel: "stylesheet",
 			   type: "text/css",
-			   href: Application.baseUrl + "/JavaScript/Mashups/Searcher TPSearch/tpsearch.css"
+			   href: Application.baseUrl + "/JavaScript/Mashups/Searcher TPSearch/style.css"
 			}).appendTo("head");
            	
             this.searchBox = $('.search').find('input[type="text"]');
