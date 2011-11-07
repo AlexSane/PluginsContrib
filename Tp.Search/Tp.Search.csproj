@@ -156,10 +156,19 @@
     <Content Include="Mashups\TPSearch\images\ui-icons_cd0a0a_256x240.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Mashups\TPSearch\jquery\jquery.highlight-3.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Mashups\TPSearch\SearchResultsItem.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Mashups\TPSearch\style.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mashups\TPSearch\templates\SearchResultsItemTmpl.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mashups\TPSearch\templates\SearchResultsTmpl.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Mashups\TPSearch\TPSearch.js">

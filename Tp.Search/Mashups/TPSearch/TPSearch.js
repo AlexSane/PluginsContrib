@@ -1,54 +1,55 @@
 tau.mashups
+.addCSS('style.css')
 .addDependency("tau/mashups/TPSearch/Commands")
 .addDependency("tau/mashups/TPSearch/SearchResults")
-.addDependency("tau/mashups/TPSearch/SearchResultsItem")	
+.addDependency("tau/mashups/TPSearch/SearchResultsItem")
 .addDependency("libs/jquery/jquery.ui")
 .addMashup(function (cmd, results, resultItem) {
 
-    function TPSearch() { }
+	function TPSearch() { }
 
-    TPSearch.prototype = {
-        searchBox: null,
-        timer: null,
-        timeOut: 500,
+	TPSearch.prototype = {
+		searchPanel: null,
+		searchBox: null,
+		timer: null,
+		timeOut: 500,
 
-        render: function () {
+		render: function () {
 
-			$("<link/>", {
-			   rel: "stylesheet",
-			   type: "text/css",
-			   href: Application.baseUrl + "/JavaScript/Mashups/Searcher TPSearch/style.css"
-			}).appendTo("head");
-           	
-            this.searchBox = $('.search').find('input[type="text"]');
-            this.searchBox.keyup($.proxy(this.onSearchTextChange, this));
-        },
+			var searchProxy = $.proxy(this.onSearchTextChange, this);
 
-        onSearchTextChange: function () {
-            var str = this.searchBox.val();
+			this.searchBox = $('.search').find('input[type="text"]');
+			//this.searchBox.keyup(searchProxy);
 
-        	if (this.timer != null) {
-        		clearTimeout(this.timer);
-        	}
-        	
-    		this.timer = setTimeout($.proxy(function() { this.timer = null; this.search(str); }, this), this.timeOut);
+			this.searchPanel = $('#ctl00_hdr_Panel1');
+			this.searchPanel.attr('onkeypress', null);
+			this.searchPanel.keypress(searchProxy);
+		},
 
-        },
-        
-        search: function (keyword) {
-        	cmd.search(keyword, $.proxy(this.searchSuccess, this), $.proxy(this.searchFail, this))
-        },
-        
-        searchSuccess: function (res) {
-        	$.each(res, function (i, val) { 
-        		results.Add(new resultItem(val));
-        	});
-        },
-        
-        searchFail: function () {
-        	
-        }
-    }
+		onSearchTextChange: function (e) {
 
-    new TPSearch().render();
+			if (e.which != 13) return true;
+
+			var str = this.searchBox.val();
+			this.search(str);
+
+			return false;
+		},
+
+		search: function (keyword) {
+			cmd.search(keyword, $.proxy(this.searchSuccess, this), $.proxy(this.searchFail, this))
+		},
+
+		searchSuccess: function (res) {
+			$.each(res, function (i, val) {
+				results.Add(new resultItem(val));
+			});
+		},
+
+		searchFail: function () {
+
+		}
+	}
+
+	new TPSearch().render();
 });
