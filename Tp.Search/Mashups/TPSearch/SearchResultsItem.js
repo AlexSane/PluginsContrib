@@ -5,13 +5,15 @@ tau.mashups
 .addDependency("tau/mashups/TPSearch/jquery/highlight")
 .addModule("tau/mashups/TPSearch/SearchResultsItem", function (cmd, tmpl) {
 
-	function SearchResultsItem(ID) {
+	function SearchResultsItem(ID, keywords) {
 		this._entityID = ID;
+		this._keywords = keywords;
 		this.element = $('<div>Loading...</div>');
 		cmd.getEntity(this._entityID, $.proxy(this.entityLoaded, this))
 	}
 
 	SearchResultsItem.prototype = {
+		_keywords: [],
 		_entityID: 0,
 		element: null,
 
@@ -26,19 +28,15 @@ tau.mashups
 		},
 
 		prepareData: function (data) {
-
-			var keywords = ['Windows', 'Ubuntu', 'mac', 'chrome'];
-
-
-			data.Description = this.shortenAndHighlight(data.Description, keywords);
-			$.each(data.Comments, $.proxy(function (i, val) { val.Description = this.shortenAndHighlight(val.Description, keywords); }, this));
+			data.Description = this.shortenAndHighlight(data.Description);
+			$.each(data.Comments, $.proxy(function (i, val) { val.Description = this.shortenAndHighlight(val.Description); }, this));
 		},
 
-		shortenAndHighlight: function (originText, keywords) {
+		shortenAndHighlight: function (originText) {
 
 			var newText = $('<div>' + $(originText).text() + '</div>');
 
-			$.each(keywords, function (i, val) {
+			$.each(this._keywords, function (i, val) {
 				newText.highlight(val);
 			});
 

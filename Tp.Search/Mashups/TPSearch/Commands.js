@@ -39,16 +39,16 @@ tau.mashups
 			});
 		},
 
-		search: function (keyword, success, fail) {
+		search: function (keywords, success, fail) {
 			// this wil make a call to plugin
 			if (success) {
-				success([3877, 3831]);
+				success({ 'Keywords': keywords, 'Items': [3877, 3831] });
 			}
 		},
 
 		getEntity: function (ID, success, fail) {
 			$.ajax({
-				url: Application.baseUrl + "/api/v1/UserStories/" + ID + "?Include=[Name,Description,Comments[Description]]",
+				url: Application.baseUrl + "/api/v1/Generals/" + ID + "?Include=[Name,Description,EntityType,Comments[Description]]",
 				success: function (result) {
 					success(result);
 				},

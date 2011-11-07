@@ -36,13 +36,28 @@ tau.mashups
 			return false;
 		},
 
-		search: function (keyword) {
-			cmd.search(keyword, $.proxy(this.searchSuccess, this), $.proxy(this.searchFail, this))
+		search: function (text) {
+			var keywords = this.getKeywords(text);
+			cmd.search(keywords, $.proxy(this.searchSuccess, this), $.proxy(this.searchFail, this))
+		},
+
+		getKeywords: function (text) {
+			var validKeywords = [];
+			var keywords = text.replace(/\W+/g, " ").split(' ');
+			$.each(keywords, function (i, v) {
+				if (v) {
+					console.log(v);
+					validKeywords.push(v);
+				}
+			});
+
+			return validKeywords;
 		},
 
 		searchSuccess: function (res) {
-			$.each(res, function (i, val) {
-				results.Add(new resultItem(val));
+			var keywords = res.Keywords;
+			$.each(res.Items, function (i, val) {
+				results.Add(new resultItem(val, keywords));
 			});
 		},
 
