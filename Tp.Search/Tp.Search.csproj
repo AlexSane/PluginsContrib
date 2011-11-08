@@ -38,6 +38,9 @@
     <Reference Include="Common.Logging.Log4Net">
       <HintPath>..\Tp.Integration.PluginSDK\log4net\Common.Logging.Log4Net.dll</HintPath>
     </Reference>
+    <Reference Include="Hoot">
+      <HintPath>libs\Hoot.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>..\Tp.Integration.PluginSDK\log4net\log4net.dll</HintPath>
     </Reference>
@@ -96,6 +99,8 @@
   <ItemGroup>
     <Compile Include="Commands\Disable.cs" />
     <Compile Include="Commands\Enable.cs" />
+    <Compile Include="Commands\Search.cs" />
+    <Compile Include="IndexHolder.cs" />
     <Compile Include="SearcherProfile.cs" />
     <Compile Include="UserStoryHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

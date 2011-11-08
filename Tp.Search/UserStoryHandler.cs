@@ -4,38 +4,32 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using hOOt;
 using NServiceBus;
 using Tp.Integration.Common;
 using Tp.Integration.Messages.EntityLifecycle.Messages;
+using Tp.Integration.Plugin.Common.Storage;
 
 namespace Tp.Search
 {
     public class UserStoryHandler : IHandleMessages<UserStoryCreatedMessage>
     {
-        private string _indexPath = "./index";
+    	private readonly IPluginContext _pluginContext;
+
+    	public UserStoryHandler(IPluginContext pluginContext)
+		{
+			_pluginContext = pluginContext;
+		}
+
         public void Handle(UserStoryCreatedMessage message)
         {
-            
-//            var fsDirectory = FSDirectory.Open(new DirectoryInfo(_indexPath));
-//            
-//            var writer = new IndexWriter(fsDirectory, new StandardAnalyzer(Version.LUCENE_CURRENT), !System.IO.Directory.Exists(_indexPath), new IndexWriter.MaxFieldLength(1000000));
-//            
-//            writer.SetWriteLockTimeout(10000);
-//            
-//            var doc = new Document();
-//            
-//            doc.Add(new Field("ID", message.Dto.ID.ToString(), Field.Store.YES, Field.Index.NOT_ANALYZED));
-//
-//            var parser = new HTMLParser(new MemoryStream(Encoding.UTF8.GetBytes(message.Dto.Description)));
-//            doc.Add(new Field("description", parser.GetReader()));
-//            doc.Add(new Field("summary", parser.GetSummary(), Field.Store.YES, Field.Index.NO));
-//            doc.Add(new Field("title", message.Dto.Name, Field.Store.YES, Field.Index.ANALYZED));
-//
-//            writer.AddDocument(doc);
-//            writer.Commit();
-//            writer.Close();
-//            fsDirectory.Close();
-//            IndexWriter.Unlock(fsDirectory);
+        	var accountName = _pluginContext.AccountName.Value;
+        	Hoot hoot = IndexHolder.GetStorage(accountName);
+
+        	hoot.Index(message.Dto.ID.Value, message.Dto.Description);
+			hoot.OptimizeIndex();
+			hoot.Save();
+			
         }
     }
 }

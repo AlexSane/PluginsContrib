@@ -39,11 +39,15 @@ tau.mashups
 			});
 		},
 
-		search: function (keywords, success, fail) {
-			// this wil make a call to plugin
-			if (success) {
-				success({ 'Keywords': keywords, 'Items': [3877, 3831] });
-			}
+		search: function (searchString, success, fail) {
+			$.ajax({
+				url: Application.baseUrl + "/api/v1/Plugins/Searcher/Commands/Search",
+				data: searchString,
+				success: success,
+				error: fail,
+				type: 'POST',
+				dataType: "json"
+			});
 		},
 
 		getEntity: function (ID, success, fail) {

@@ -36,14 +36,14 @@ tau.mashups
 			return false;
 		},
 
-		search: function (text) {
-			var keywords = this.getKeywords(text);
-			cmd.search(keywords, $.proxy(this.searchSuccess, this), $.proxy(this.searchFail, this))
+		search: function (searchString) {
+			cmd.search(searchString, $.proxy(this.searchSuccess, this), $.proxy(this.searchFail, this))
 		},
 
 		getKeywords: function (text) {
 			var validKeywords = [];
-			var keywords = text.replace(/\W+/g, " ").split(' ');
+			// see http://kourge.net/projects/regexp-unicode-block
+			var keywords = text.replace(/[~`!@#$%^&*()+=\-\[\]{}'"\\|\/,\.?<>]+/g, " ").split(' ');
 			$.each(keywords, function (i, v) {
 				if (v) {
 					console.log(v);
@@ -55,7 +55,7 @@ tau.mashups
 		},
 
 		searchSuccess: function (res) {
-			var keywords = res.Keywords;
+			var keywords = this.getKeywords(res.SearchString);
 			$.each(res.Items, function (i, val) {
 				results.Add(new resultItem(val, keywords));
 			});
