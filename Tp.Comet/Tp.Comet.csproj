@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{25C085C1-5CD5-4189-A1FA-A8816D0DD550}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tp.Comet</RootNamespace>
+    <AssemblyName>Tp.Comet</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging">
+      <HintPath>packages\Common.Logging.1.2.0\lib\1.0\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Log4Net">
+      <HintPath>packages\Common.Logging.Log4Net.1.2.0\lib\2.0\Common.Logging.Log4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>packages\TargetProcessPluginSDK.2.22.6.20310\lib\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Services3">
+      <HintPath>packages\TargetProcessPluginSDK.2.22.6.20310\lib\Microsoft.Web.Services3.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus">
+      <HintPath>packages\TargetProcessPluginSDK.2.22.6.20310\lib\NServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.Core">
+      <HintPath>packages\TargetProcessPluginSDK.2.22.6.20310\lib\NServiceBus.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.Host">
+      <HintPath>packages\TargetProcessPluginSDK.2.22.6.20310\lib\NServiceBus.Host.exe</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.ObjectBuilder.StructureMap262">
+      <HintPath>packages\TargetProcessPluginSDK.2.22.6.20310\lib\NServiceBus.ObjectBuilder.StructureMap262.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>packages\structuremap.2.6.2\lib\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tp.Core">
+      <HintPath>packages\TargetProcessPluginSDK.2.22.6.20310\lib\Tp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Tp.Integration.Messages">
+      <HintPath>packages\TargetProcessPluginSDK.2.22.6.20310\lib\Tp.Integration.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="Tp.Integration.Plugin.Common">
+      <HintPath>packages\TargetProcessPluginSDK.2.22.6.20310\lib\Tp.Integration.Plugin.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Tp.Plugin.Core">
+      <HintPath>packages\TargetProcessPluginSDK.2.22.6.20310\lib\Tp.Plugin.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Tp.Service.Proxies">
+      <HintPath>packages\TargetProcessPluginSDK.2.22.6.20310\lib\Tp.Service.Proxies.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CometProfile.cs" />
+    <Compile Include="Commands\Message.cs" />
+    <Compile Include="Commands\Refresh.cs" />
+    <Compile Include="Commands\Subscribe.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Tp.Integration.Plugin.Common.dll.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Mashups\ProfileEditor\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Mashups\Module\Comet.js" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
