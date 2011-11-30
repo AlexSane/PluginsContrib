@@ -17,7 +17,6 @@
             if (this.subscriber == null) {
                 $.ajax({
                     url: Application.baseUrl + "/api/v1/Plugins/Tp.Comet/Commands/Subscribe",
-                    data: "Eugene",
                     dataType: "json",
 
                     success: $.proxy(this._onSubscribe, this),
@@ -57,8 +56,6 @@
 
                     type: 'POST',
                 });
-            
-
         },
         
         _onRefresh: function (result) {
@@ -72,7 +69,27 @@
         },
 
         sendMessage: function (message) {
+			var msg = {Text:message};
+			if (this.subscriber) {
+				msg.SubscriberId = this.subscriber.SubscriberId;
+			}
 
+            $.ajax({
+                url: Application.baseUrl + "/api/v1/Plugins/Tp.Comet/Commands/Message",
+
+                data: JSON.stringify(msg),
+                dataType: "json",
+
+                success: function (e, r, t) {
+                    console.log("Message sent");
+                },
+
+                error: function (e, r, t) {
+                    console.log("Can't send a message");
+                },
+
+                type: 'POST',
+            });
         }
     }
 

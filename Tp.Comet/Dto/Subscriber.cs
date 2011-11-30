@@ -9,9 +9,8 @@ namespace Tp.Comet.Dto
     {
         readonly List<Message> _messages = new List<Message>();
 
-        public Subscriber(string name)
+        public Subscriber()
         {
-            Name = name;
             SubscriberId = Guid.NewGuid();
         }
 

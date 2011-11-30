@@ -12,7 +12,7 @@ namespace Tp.Comet.Commands
     {
         public PluginCommandResponseMessage Execute(string args)
         {
-            var subscriber = new Subscriber(args);
+            var subscriber = new Subscriber();
 
             SubscriberRepository.AddSubscriber(subscriber);
 
