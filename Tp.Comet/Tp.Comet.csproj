@@ -67,7 +67,6 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Tp.Core">
@@ -88,12 +87,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CometProfile.cs" />
-    <Compile Include="Commands\Message.cs" />
-    <Compile Include="Commands\Refresh.cs" />
-    <Compile Include="Commands\Subscribe.cs" />
+    <Compile Include="Dto\Message.cs" />
+    <Compile Include="Commands\MessageCommand.cs" />
+    <Compile Include="SubscriberRepository.cs" />
+    <Compile Include="Commands\RefreshCommand.cs" />
+    <Compile Include="Commands\SubscribeCommand.cs" />
+    <Compile Include="Dto\Subscriber.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Mashups\Chat\Chat.cfg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Mashups\Module\Comet.cfg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Tp.Integration.Plugin.Common.dll.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -103,7 +111,12 @@
     <Folder Include="Mashups\ProfileEditor\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Mashups\Module\Comet.js" />
+    <Content Include="Mashups\Chat\Chat.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mashups\Module\Comet.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
