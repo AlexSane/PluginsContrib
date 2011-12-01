@@ -89,6 +89,7 @@
     <Compile Include="CometProfile.cs" />
     <Compile Include="Dto\Message.cs" />
     <Compile Include="Commands\MessageCommand.cs" />
+    <Compile Include="PluginCommandHandler.cs" />
     <Compile Include="SubscriberRepository.cs" />
     <Compile Include="Commands\RefreshCommand.cs" />
     <Compile Include="Commands\SubscribeCommand.cs" />

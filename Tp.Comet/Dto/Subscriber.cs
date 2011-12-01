@@ -14,6 +14,9 @@ namespace Tp.Comet.Dto
             SubscriberId = Guid.NewGuid();
         }
 
+		public string LastMessageId { get; set; }
+		public string ReturnAddress { get; set; }
+
         [DataMember]
         public List<Message> Messages
         {

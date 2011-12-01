@@ -9,6 +9,7 @@
 		avatar: '',
 
 		start: function () {
+
 			console.log('Starting chat...');
 
 			$('' +

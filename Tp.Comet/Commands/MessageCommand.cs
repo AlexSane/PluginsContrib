@@ -5,17 +5,26 @@ using System.Text;
 using Tp.Comet.Dto;
 using Tp.Integration.Messages.Commands;
 using Tp.Integration.Messages.PluginLifecycle.PluginCommand;
+using Tp.Integration.Plugin.Common;
 using Tp.Integration.Plugin.Common.PluginCommand.Embedded;
 
 namespace Tp.Comet.Commands
 {
     public class MessageCommand : IPluginCommand
     {
-        public PluginCommandResponseMessage Execute(string args)
+    	private readonly ITpBus _bus;
+
+    	public MessageCommand(ITpBus bus)
+    	{
+    		_bus = bus;
+    	}
+
+    	public PluginCommandResponseMessage Execute(string args)
         {
             var msg = args.Deserialize<Message>();
 
-            SubscriberRepository.AddMessage(msg);
+            SubscriberRepository.AddMessage(msg, _bus);
+
 
             return new PluginCommandResponseMessage() {PluginCommandStatus = PluginCommandStatus.Succeed};
         }
